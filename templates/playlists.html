@@ -1,0 +1,20 @@
+<h1>My Playlists</h1>
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+{% for playlist in playlists %}
+    <li><a href="http://localhost:5000/playlist/{{ playlist.id }}">{{ playlist.title }}</a></li>
+    <form action='/delete/{{ playlist.id }}' method='POST'>
+      {{ form.submit() }}
+    </form>
+{% endfor %}
+</ul>
+
+{% if playlists.count() < 1 %}
+    There are no playlists in the database.
+{% endif %}
+
+{% endblock %}

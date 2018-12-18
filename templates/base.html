@@ -1,0 +1,41 @@
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Sign Out {{current_user.username}}</a>
+{% else %}
+    <a href="{{ url_for('login') }}">Sign In</a>
+{% endif %}
+<br>
+<br>
+
+{% block content %}
+<h1>Spotify Playlist Generator</h1>
+<br>
+<br>
+
+<form action = "{{ url_for('index') }}" method="POST">
+    {{ form.artist.label() }}{{ form.artist() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+
+{% endblock %}
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+{% block navigation %}
+<ul>
+    <li><a href="{{ url_for('index')}}">Home Page</a></li>
+    <li><a href="{{ url_for('new_song')}}">Song Input Page</a></li>
+    <li><a href="{{ url_for('new_genre')}}">Genre Input Page</a></li>
+    <li><a href="{{ url_for('see_artists')}}">View All Artists</a></li>
+    <li><a href="{{ url_for('see_songs')}}">View All Songs</a></li>
+    <li><a href="{{ url_for('see_genres')}}">View All Genres</a></li>
+    <li><a href="{{ url_for('playlists')}}">View All User Playlists</a></li>
+    <li><a href="{{ url_for('create_playlist')}}">Create a New Custom Playlist</a></li>
+    <li><a href="{{ url_for('create_playlist_by_genre')}}">Create a New Playlist by Genre</a></li>
+    <li><a href="{{ url_for('favorites')}}">Enter Your Favorite Artist and Song</a></li>
+</ul>
+{% endblock %}

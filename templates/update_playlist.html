@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+<h1>Update {{ playlist.title }}</h1>
+
+{% block content %}
+
+<form method ='POST' action="/update/{{ playlist.id }}" >
+  {{form.hidden_tag()}}
+  {{ form.new_song.label}} {{ form.new_song() }}
+  {{ form.submit.label }} {{ form.submit() }}
+</form>
+
+{% endblock %}

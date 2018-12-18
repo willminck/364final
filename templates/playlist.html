@@ -1,0 +1,21 @@
+<h1> {{ playlist.title }} </h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+{% for song in songs %}
+    <p>{{ song.title }} by {{ song.artist }} is on {{ song.album }} and has a popularity score of {{ song.popularity }}.</p>
+    <p>Listen here: {{ song.url }}</p>
+{% endfor %}
+<form action='/update/{{ playlist.id }}' method='POST'>
+    {{ form.submit() }}
+</form>
+
+</ul>
+
+{% if songs|length < 1 %}
+    There are no songs in the playlist.
+{% endif %}
+
+{% endblock %}

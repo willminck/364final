@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="http://localhost:5000/favorites" method="GET">
+  {{ form.favorite_artist.label() }}{{ form.favorite_artist() }}<br>
+  {{ form.favorite_song.label() }}{{ form.favorite_song() }}<br>
+  {{ form.submit() }}
+  {{ form.hidden_tag() }}
+</form>
+{% endblock %}

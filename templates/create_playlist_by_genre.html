@@ -1,0 +1,14 @@
+<h1>Create a new Playlist by Genre</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.playlist.label }} {{ form.playlist() }}
+	{{ form.genre.label }} {{ form.genre() }}
+  {{ form.length.label }} {{ form.length() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+{% endblock %}

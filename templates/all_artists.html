@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Artists within the Database:</h1>
+
+<ul>
+{% for artist in artists %}
+    <p>{{ artist.id }}) {{ artist.name }} has {{ artist.followers }} Spotify followers and a popularity score of {{ artist.popularity }}.</p>
+{% endfor %}
+</ul>
+
+{% if artists|length < 1 %}
+    There are no artists in the database.
+{% endif %}
+
+{% endblock %}

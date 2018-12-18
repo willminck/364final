@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Song Input Page</h1>
+<br>
+<br>
+
+<form action = "{{ url_for('new_song') }}" method="POST">
+    {{ form.song.label() }}{{ form.song() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+{% endblock %}

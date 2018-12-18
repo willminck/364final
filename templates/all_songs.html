@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Songs within the Database:</h1>
+
+<ul>
+{% for song in songs %}
+    <p>{{ song.id }}) {{ song.title }} by {{ song.artist }} is on {{ song.album }} and has a popularity score of {{ song.popularity }}.</p>
+    <p>Listen here: {{ song.url }}</p>
+{% endfor %}
+</ul>
+
+{% if songs|length < 1 %}
+    There are no songs in the database.
+{% endif %}
+
+{% endblock %}

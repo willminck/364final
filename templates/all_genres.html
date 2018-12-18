@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Genres within the Database:</h1>
+
+<ul>
+{% for genre in genres %}
+    <p>{{ genre.id }}) {{ genre.genre }}</p>
+{% endfor %}
+</ul>
+
+{% if genres|length < 1 %}
+    There are no genres in the database.
+{% endif %}
+
+{% endblock %}
